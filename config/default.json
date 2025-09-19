@@ -1,0 +1,42 @@
+{
+  "strategies": [
+    {
+      "name": "moving_average",
+      "enabled": true,
+      "parameters": {
+        "shortPeriod": 5,
+        "longPeriod": 20,
+        "minConfidence": 0.6,
+        "maxPositionSize": 100,
+        "tokens": ["USDC", "WETH"]
+      }
+    },
+    {
+      "name": "simple_trigger",
+      "enabled": true,
+      "parameters": {
+        "buyThreshold": 2.0,
+        "sellThreshold": 1.5,
+        "minConfidence": 0.5,
+        "maxPositionSize": 50,
+        "tokens": ["USDC", "WETH"],
+        "lookbackPeriod": 10
+      }
+    }
+  ],
+  "trading": {
+    "intervalMs": 30000,
+    "maxConcurrentTrades": 5,
+    "riskManagement": {
+      "maxDailyLoss": 1000,
+      "maxPositionSize": 1000,
+      "stopLossPercentage": 5.0
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": "trading.log",
+    "maxFileSize": "10MB",
+    "maxFiles": 5
+  }
+}
